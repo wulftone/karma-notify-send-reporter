@@ -47,11 +47,11 @@ var NotifySendReporter = function(helper, logger, config) {
     var time = helper.formatTimeInterval(results.totalTime);
 
     if (results.disconnected || results.error) {
-      return notifySend(ERROR_TITLE, ERROR_MESSAGE, 'critical', ERROR_ICON);
+      return notifySend(ERROR_TITLE, ERROR_MESSAGE, 'normal', ERROR_ICON);
     }
 
     if (results.failed) {
-      return notifySend(FAIL_TITLE, util.format(FAIL_MESSAGE, results.failed, results.total, time), 'critical', FAIL_ICON);
+      return notifySend(FAIL_TITLE, util.format(FAIL_MESSAGE, results.failed, results.total, time), 'normal', FAIL_ICON);
     }
 
     return notifySend(SUCCESS_TITLE, util.format(SUCCESS_MESSAGE, results.success, time), 'normal', SUCCESS_ICON);
